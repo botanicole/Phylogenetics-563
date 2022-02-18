@@ -1,16 +1,21 @@
-During Spring 2022 at UW-Madison, we took the class B563 "Phylogenetic analysis of molecular data" with Claudia Solis as instructor. 
-We created a github repository for all steps performed to analyse our data and achieve reproducibility.  
+During Spring 2022 at UW-Madison, we took the class B563 "Phylogenetic analysis of molecular data" with Dr. Solis as instructor. 
+We created a github repository for the class (Phylogenetics-563) as part of the reproducibility approach. 
 
-1. Download NCBI Genbank sequences
+1. QUALITY CONTROL
+
++Downloaded FastQ to run QC for our molecular data. 
++As I will work with public nuclear regions from NCBI, they already have gone through QC, and therefore, 
+
+2. Download NCBI Genbank sequences
 
 For the purposes of the course, I decided to work with nuclear regions publicly available (e.g., ITS, ETC, G3pdh) and previously used by Pederneiras et al. (2015) and Machado et al. (2018).
 All nuclear regions were downloaded from NCBI genbank as FASTA files, and stored in the FASTA FILES folder as follows: F_sp_GENEBANK ACCESSION CODE
 
-2. QC with FastQ
+3. QC with FastQ
 
 I can't open the FASTA files on this software
 
-3. Alignment
+4. Alignment
 
 Downloaded ClustalW file clustalw-2.1macosx.dmg and copied the folder into Desktop/Phylogenetics-563
 
