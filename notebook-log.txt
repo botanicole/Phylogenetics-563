@@ -1,0 +1,13 @@
+During Spring 2022 at UW-Madison, we took the class B563 "Phylogenetic analysis of molecular data" with Claudia Solis as instructor. 
+We created a github repository for all steps performed to analyse our data and achieve reproducibility.  
+
+1. Download NCBI Genbank sequences
+
+For the purposes of the course, I decided to work with nuclear regions publicly available (e.g., ITS, ETC, G3pdh) and previously used by Pederneiras et al. (2015) and Machado et al. (2018).
+All nuclear regions were downloaded from NCBI genbank as FASTA files, and stored in the FASTA FILES folder as follows: F_sp_GENEBANK ACCESSION CODE
+
+2. Alignment
+
+Downloaded ClustalW file clustalw-2.1macosx.dmg and copied the folder into Desktop/Phylogenetics-563
+
+
