@@ -8,8 +8,9 @@ We created a github repository for the class (Phylogenetics-563) as part of the 
 
 2. Download NCBI Genbank sequences
 
--For the purposes of the course, I decided to work with nuclear regions publicly available (e.g., ITS, ETC, G3pdh) and previously used by Pederneiras et al. (2015) and Machado et al. (2018).
--All nuclear regions were downloaded from NCBI genbank as FASTA files, and stored in the FASTA FILES folder as follows: F_sp_GENEBANK ACCESSION CODE.fasta (e.g., F_maxima_KM186217.fasta)
+-For the purposes of the course, I decided to work with nuclear regions publicly available (e.g., ITS, ETC, G3pdh, AT103, and TPI) and previously used by Pederneiras et al. (2015) and Machado et al. (2018).
+-Each nuclear region was downloaded from NCBI Genbank as FASTA file, and stored in the FASTA FILES folder as follows: F_sp_GENEBANK ACCESSION CODE.fasta (e.g., F_maxima_KM186217.fasta).
+-Created one .fasta file for each nuclear region and placed each corresponding sequence together (e.g., all ITS sequences for each species were placed together in the sale .fasta file). This helped in the alignment step, as each region needed to be aligned separately.
 
 3. QC with FastQ
 
@@ -18,17 +19,17 @@ We created a github repository for the class (Phylogenetics-563) as part of the 
 4. Alignment
 
 -Downloaded ClustalW file clustalw-2.1macosx.dmg and copied the folder into Desktop/Phylogenetics-563/software
--Open the terminal and run the following command to install clustalw
+-Opened the terminal and run the following command to install clustalw
 
-conda create -n clustalw2 -c bio builds -y clustalw
+>conda create -n clustalw2 -c bio builds -y clustalw
 
 -To activate clustalw in the terminal, I run this command:
 
-conda activate clustalw2
+>conda activate clustalw2
 
 -To make the MSA (multiple sequence alignment), I run this command:
 
-clustalw2 -ALIGN -INFILE=FICUS_SEQUENCES_FASTA.fasta -OUTFILE=FICUS_SEQUENCES_FASTA-aligned.fasta -OUTPUT=PHYLIP
+>clustalw2 -ALIGN -INFILE=FICUS_SEQUENCES_FASTA.fasta -OUTFILE=FICUS_SEQUENCES_FASTA-aligned.fasta -OUTPUT=PHYLIP
 
 Alignment Score = 5271670
 
