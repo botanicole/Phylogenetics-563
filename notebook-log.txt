@@ -21,15 +21,104 @@ We created a github repository for the class (Phylogenetics-563) as part of the 
 -Downloaded ClustalW file clustalw-2.1macosx.dmg and copied the folder into Desktop/Phylogenetics-563/software
 -Opened the terminal and run the following command to install clustalw
 
->conda create -n clustalw2 -c bio builds -y clustalw
+conda create -n clustalw2 -c bio builds -y clustalw
 
 -To activate clustalw in the terminal, I run this command:
 
->conda activate clustalw2
+conda activate clustalw2
 
 -To make the MSA (multiple sequence alignment), I run this command:
 
->clustalw2 -ALIGN -INFILE=FICUS_SEQUENCES_FASTA.fasta -OUTFILE=FICUS_SEQUENCES_FASTA-aligned.fasta -OUTPUT=PHYLIP
+clustalw2 -ALIGN -INFILE=FICUS_SEQUENCES_FASTA.fasta -OUTFILE=FICUS_SEQUENCES_FASTA-aligned.fasta -OUTPUT=PHYLIP
 
 Alignment Score = 5271670
+
+5. Distance-based methods
+
+-Install the following packages on R:
+
+install.packages("adegenet", dep=TRUE)
+install.packages("phangorn", dep=TRUE)
+
+-Load installed packages:
+
+library(ape)
+library(adegenet)
+library(phangorn)
+
+-Load sample data*. 
+*The following command doesn't work on R: it takes too much time to find the size of a single genome.
+dna <- fasta2DNAbin(file="ITS-aligned.fasta")
+
+-Run the following commands to get a NJ tree for each aligned fasta file (i.e., ETS, TPI,G3PDH, AT103, ITS) 
+
+dna <- read.dna(file="ETS-aligned.fasta")
+D <- dist.dna(dna, model="TN93")
+plot(tre, cex=.6)
+title("ETS NJ tree")
+
+dna <- read.dna(file="TPI-aligned.fasta")
+D <- dist.dna(dna, model="TN93")
+plot(tre, cex=.6)
+title("TPI NJ tree")
+
+dna <- read.dna(file="G3PDH-aligned.fasta")
+D <- dist.dna(dna, model="TN93")
+plot(tre, cex=.6)
+title("G3PDH NJ tree")
+
+dna <- read.dna(file="AT103-aligned.fasta")
+D <- dist.dna(dna, model="TN93")
+plot(tre, cex=.6)
+title("AT103 NJ tree")
+
+dna <- read.dna(file="ITS-aligned.fasta")
+D <- dist.dna(dna, model="TN93")
+plot(tre, cex=.6)
+title("ITS NJ tree")
+
+6. Parsimony-based method: Maximum Parsimony
+
+-Run the following commands to get a MP tree for each aligned fasta file (i.e., ETS, TPI,G3PDH, AT103, ITS) 
+
+dna <- read.dna(file="ETS-aligned.fasta")
+dna2 <- as.phyDat(dna)
+tre.ini <- nj(dist.dna(dna,model="raw"))
+parsimony(tre.ini, dna2)
+tre.pars <- optim.parsimony(tre.ini, dna2)
+plot(tre.pars, cex=0.6)
+title("ETS MP tree")
+
+dna <- read.dna(file="TPI-aligned.fasta")
+dna2 <- as.phyDat(dna)
+tre.ini <- nj(dist.dna(dna,model="raw"))
+parsimony(tre.ini, dna2)
+tre.pars <- optim.parsimony(tre.ini, dna2)
+plot(tre.pars, cex=0.6)
+title("TPI MP tree")
+
+dna <- read.dna(file="G3PDH-aligned.fasta")
+dna2 <- as.phyDat(dna)
+tre.ini <- nj(dist.dna(dna,model="raw"))
+parsimony(tre.ini, dna2)
+tre.pars <- optim.parsimony(tre.ini, dna2)
+plot(tre.pars, cex=0.6)
+title("G3PDH MP tree")
+
+dna <- read.dna(file="AT103-aligned.fasta")
+dna2 <- as.phyDat(dna)
+tre.ini <- nj(dist.dna(dna,model="raw"))
+parsimony(tre.ini, dna2)
+tre.pars <- optim.parsimony(tre.ini, dna2)
+plot(tre.pars, cex=0.6)
+title("AT103 MP tree")
+
+dna <- read.dna(file="ITS-aligned.fasta")
+dna2 <- as.phyDat(dna)
+tre.ini <- nj(dist.dna(dna,model="raw"))
+parsimony(tre.ini, dna2)
+tre.pars <- optim.parsimony(tre.ini, dna2)
+plot(tre.pars, cex=0.6)
+title("ITS MP tree")
+
 
